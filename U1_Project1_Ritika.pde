@@ -98,5 +98,9 @@ void draw ()
   {
     rectY5 = random (600);
   }
+  
+  fill(0,196,247);
+  ellipse(mouseX,mouseY,50,50);
+  
 
 }
