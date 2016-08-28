@@ -4,6 +4,7 @@
 */
 boolean fullGame = true;
 int Score = 0;
+String s = "Try Again!";
 
 float rectX1 = random (620);
 float rectY1 = random (600);
@@ -34,7 +35,6 @@ float rectY2POS = random (600);
 void setup()
 {
   size (700,650);  
-  
 }
 
 void draw ()
@@ -48,12 +48,21 @@ void draw ()
   
     Positive();
     Negative();
-    Score();
+    Score();    
   }
   
   if(millis() > 15000)
   {
     fullGame = false;
+  }
+  
+  if (fullGame == false)
+  {
+    fill(0);
+    rect(0,0,700,650);
+    fill(255);
+    textSize(100);
+    text("Try Again!",75,335);
   }
   
 }
