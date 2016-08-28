@@ -2,6 +2,8 @@
   
 
 */
+boolean fullGame = true;
+int Score = 0;
 
 float rectX1 = random (620);
 float rectY1 = random (600);
@@ -37,13 +39,23 @@ void setup()
 
 void draw ()
 {
-  background (255);
+  if (fullGame ==true)
+  {
+    background (255);
   
-  fill(0,196,247);
-  ellipse(mouseX,mouseY,50,50);
+    fill(0,196,247);
+    ellipse(mouseX,mouseY,50,50);
   
-  Positive();
-  Negative();
+    Positive();
+    Negative();
+    Score();
+  }
+  
+  if(millis() > 15000)
+  {
+    fullGame = false;
+  }
+  
 }
 
 void Positive()
@@ -195,4 +207,64 @@ void Negative()
   {
     rectY2POS = random (600);
   }
+}
+
+void Score()
+{
+  fill(0);
+  rect(15,15,100,35);
+  fill(225);
+  textSize(32);
+  text(Score,20,45);
+  
+  if(dist (mouseX,mouseY,rectX1,rectY1) < 40)
+  {
+    Score = Score + 5;
+  }
+  
+    if(dist (mouseX,mouseY,rectX2,rectY2) < 40)
+  {
+    Score = Score + 5;
+  }
+
+  if(dist (mouseX,mouseY,rectX3,rectY3) < 40)
+  {
+    Score = Score + 5;
+  }
+  
+  if(dist (mouseX,mouseY,rectX1POS,rectY1NEG) < 40)
+  {
+    Score = Score + 5;
+  }
+  
+  if(dist (mouseX,mouseY,rectX2POS,rectY2NEG) < 40)
+  {
+    Score = Score + 5;
+  }
+  
+  if(dist (mouseX,mouseY,rectXX1,rectYY1) < 40)
+  {
+    Score = Score + 5;
+  }
+  
+    if(dist (mouseX,mouseY,rectXX2,rectYY2) < 40)
+  {
+    Score = Score + 5;
+  }
+
+  if(dist (mouseX,mouseY,rectXX3,rectYY3) < 40)
+  {
+    Score = Score + 5;
+  }
+  
+  if(dist (mouseX,mouseY,rectX1NEG,rectY1POS) < 40)
+  {
+    Score = Score + 5;
+  }
+  
+  if(dist (mouseX,mouseY,rectX2NEG,rectY2POS) < 40)
+  {
+    Score = Score + 5;
+  }
+
 }
